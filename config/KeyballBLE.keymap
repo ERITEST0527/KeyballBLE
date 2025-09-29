@@ -131,7 +131,7 @@
             bindings = <
 &kp TILDE  &kp EXCL  &kp AT  &kp HASH  &kp PRCNT                      &kp LPAR  &kp RPAR  &kp EQUAL         &kp MINUS          &kp PLUS
 &trans     &trans    &trans  &trans    &trans     &trans      &trans  &trans    &trans    &trans            &kp ASTERISK       &kp COLON
-&trans     &trans    &trans  &trans    &trans     &trans      &trans  &trans    &trans    &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp DOUBLE_QUOTES
+&trans     &trans    &trans  &trans    &trans     &trans      &trans  &trans    &trans    &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &trans
 &trans     &trans    &trans  &trans    &trans     &trans      &trans  &trans                                                   &kp QUESTION
             >;
         };
