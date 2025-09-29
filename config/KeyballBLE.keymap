@@ -22,6 +22,21 @@
             bindings = <&kp DOUBLE_QUOTES>;
             key-positions = <20 21>;
         };
+
+        Esc_Q+W {
+            bindings = <&kp ESC>;
+            key-positions = <0 1>;
+        };
+
+        Caps_R+T {
+            bindings = <&kp CAPS>;
+            key-positions = <3 4>;
+        };
+
+        Ctrl_hidarishita {
+            bindings = <&kp LEFT_CONTROL>;
+            key-positions = <34 35>;
+        };
     };
 
     macros {
@@ -30,6 +45,13 @@
             #binding-cells = <1>;
             bindings = <&to 0 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
             label = "TO_LAYER_0";
+        };
+
+        Dist_00: Dist_00 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp KP_NUMBER_0 &kp KP_NUMBER_0>;
+            label = "DIST_00";
         };
     };
 
@@ -58,21 +80,21 @@
 
         default_layer {
             bindings = <
-&kp Q             &kp W         &kp E         &kp R                        &kp T                                                              &kp Y        &kp U  &lt 5 I    &kp O    &kp P
-&kp A             &kp S         &kp D         &kp F                        &kp G        &mkp LCLK                          &kp BACKSLASH      &kp H        &kp J  &kp K      &kp L    &kp MINUS
-&mt LEFT_SHIFT Z  &kp X         &kp C         &kp V                        &kp B        &mkp RCLK                          &kp RIGHT_BRACKET  &kp N        &kp M  &kp COMMA  &kp DOT  &kp SLASH
-&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt_to_layer_0 6 INT_HENKAN  &lt 2 SPACE  &lt_to_layer_0 3 INT_MUHENKAN      &kp BACKSPACE      &lt 1 ENTER                             &kp DEL
+&kp Q             &kp W         &kp E             &kp R                      &kp T                                                    &kp Y      &kp U  &lt 5 I    &kp O    &kp P
+&kp A             &kp S         &kp D             &kp F                      &kp G      &mkp LCLK                        &kp DELETE   &kp H      &kp J  &kp K      &kp L    &kp SEMICOLON
+&mt LEFT_SHIFT Z  &kp X         &kp C             &kp V                      &kp B      &mt KP_NUMBER_4 KP_NUMBER_3      &lt 6 MINUS  &kp N      &kp M  &kp COMMA  &kp DOT  &mt RIGHT_SHIFT DOUBLE_QUOTES
+&lt 5 TAB         &kp LEFT_ALT  &kp LEFT_COMMAND  &lt_to_layer_0 3 CAPSLOCK  &kp SPACE  &kp BACKSPACE                    &kp ENTER    &kp ENTER                             &lt 1 SLASH
             >;
 
             sensor-bindings = <&ROTATE SCRL_DOWN SCRL_UP>;
         };
 
-        FUNCTION {
+        NUM+FUNCTION {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                       &kp F1  &kp F2  &kp F3  &kp F4  &kp F5
-&trans  &trans  &trans  &trans  &trans  &trans      &kp F13  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10
-&trans  &trans  &trans  &trans  &trans  &trans      &trans   &trans  &trans  &trans  &trans  &kp F11
-&trans  &trans  &trans  &trans  &trans  &trans      &trans   &trans                          &kp F12
+&kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp PERCENT  &kp KP_DIVIDE                       &kp F1   &kp F2  &kp F3  &kp F4  &kp F5
+&kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp ASTRK    &kp KP_MINUS   &trans      &kp F13  &kp F6   &kp F7  &kp F8  &kp F9  &kp F10
+&kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_PLUS  &kp KP_EQUAL   &trans      &kp F11  &kp F12  &trans  &trans  &trans  &trans
+&kp KP_NUMBER_0  &Dist_00         &kp PERIOD       &kp COLON    &trans         &trans      &trans   &trans                           &trans
             >;
         };
 
@@ -85,12 +107,12 @@
             >;
         };
 
-        ARROW {
+        YAJIRUSHI {
             bindings = <
-&kp ESCAPE      &kp LC(LS(TAB))         &kp UP_ARROW    &kp LC(TAB)              &trans                       &trans  &trans  &trans  &trans  &trans
-&kp HOME        &kp LEFT_ARROW          &kp DOWN_ARROW  &kp RIGHT_ARROW          &kp END  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&kp LEFT_SHIFT  &kp LG(LS(LEFT_ARROW))  &trans          &kp LG(LS(RIGHT_ARROW))  &trans   &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans          &trans                  &trans          &trans                   &trans   &trans      &trans  &trans                          &trans
+&kp ESCAPE      &kp LC(LS(TAB))         &kp UP_ARROW    &kp LC(TAB)              &trans                       &kp ESC  &trans    &kp UP    &kp PSCRN  &kp HOME
+&kp HOME        &kp LEFT_ARROW          &kp DOWN_ARROW  &kp RIGHT_ARROW          &kp END  &trans      &trans  &trans   &kp LEFT  &kp DOWN  &kp RIGHT  &kp END
+&kp LEFT_SHIFT  &kp LG(LS(LEFT_ARROW))  &trans          &kp LG(LS(RIGHT_ARROW))  &trans   &trans      &trans  &trans   &trans    &trans    &trans     &kp PAGE_UP
+&trans          &trans                  &trans          &trans                   &trans   &trans      &trans  &trans                                  &kp PG_DN
             >;
 
             sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
@@ -105,12 +127,12 @@
             >;
         };
 
-        SCROLL {
+        HIROKI {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
+&kp TILDE  &kp EXCL  &kp AT  &kp HASH  &kp PRCNT                      &kp LPAR  &kp RPAR  &kp EQUAL         &kp MINUS          &kp PLUS
+&trans     &trans    &trans  &trans    &trans     &trans      &trans  &trans    &trans    &trans            &kp ASTERISK       &kp COLON
+&trans     &trans    &trans  &trans    &trans     &trans      &trans  &trans    &trans    &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp DOUBLE_QUOTES
+&trans     &trans    &trans  &trans    &trans     &trans      &trans  &trans                                                   &kp QUESTION
             >;
         };
 
